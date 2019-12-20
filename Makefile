@@ -20,7 +20,7 @@ clean:
 .%test: %_tb
 	@vvp -iN $<
 	@echo Sat > $@
-	@git commit -am "Auto-commit on successful build"
+	@git commit --allow-empty -am "Auto-commit on successful build"
 
 %.blif: %.v
 	yosys -p 'synth_ice40 -blif $@' $< $(DEPS)
